@@ -42,7 +42,7 @@ public interface ProjectApi {
                         @RequestPart("video") MultipartFile file,
                         @RequestPart("image") MultipartFile image);
 
-        @Operation(summary = "View all projects")
+        @Operation(summary = "View all project")
         @ApiResponses(value = {
                         @ApiResponse(responseCode = "200", description = "Successfully viewed all projects"),
                         @ApiResponse(responseCode = "400", description = "Coudn't fetch the projects")
@@ -63,6 +63,7 @@ public interface ProjectApi {
                         @ApiResponse(responseCode = "200", description = "Successfully delete project"),
                         @ApiResponse(responseCode = "400", description = "Invalid project provided")
         })
+
         @PostMapping(value = "/delete/{id}")
         public ResponseEntity<String> deleteProjectById(@PathVariable String id);
 }

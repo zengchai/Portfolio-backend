@@ -11,7 +11,9 @@
 	<groupId>com.loy</groupId>
 	<artifactId>portfolio</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>portfolio</name>
+	<properties>
+		<java.version>17</java.version>
+	</properties>
 	<description>A simple portfolio website</description>
 	<dependencies>
 		<dependency>
