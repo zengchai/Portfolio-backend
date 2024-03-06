@@ -38,7 +38,8 @@ public interface ProjectApi {
                         @RequestParam("githubURL") String githubURL,
                         @RequestParam("technology") List<String> technology,
                         @RequestParam("description") List<String> description,
-                        @RequestPart("file") MultipartFile file);
+                        @RequestPart("video") MultipartFile file,
+                        @RequestPart("image") MultipartFile image);
 
         @Operation(summary = "Upload a project")
         @ApiResponses(value = {
@@ -56,5 +57,5 @@ public interface ProjectApi {
         })
 
         @PostMapping(value = "/{id}")
-        public ResponseEntity<Resource> viewGif(@PathVariable String id);
+        public ResponseEntity<Resource> findFileById(@PathVariable String id);
 }

@@ -3,9 +3,6 @@ package com.loy.portfolio.Configs;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.loy.portfolio.Models.Movies.MovieRepository.MovieRepository;
-import com.loy.portfolio.Models.Movies.MovieRepository.MongoDb.MovieMongoDb;
-import com.loy.portfolio.Models.Movies.MovieRepository.MongoDb.MovieRepositoryMongoDb;
 import com.loy.portfolio.Models.Projects.ProjectRepository.ProjectRepository;
 import com.loy.portfolio.Models.Projects.ProjectRepository.MongoDb.ProjectRepositoryMongoDb;
 import com.loy.portfolio.Models.Reviews.ReviewRepository.ReviewRepository;
@@ -17,11 +14,6 @@ import com.loy.portfolio.Service.ReviewService.ReviewServiceMongoDb;
 
 @Configuration
 public class AppConfig {
-
-    @Bean
-    MovieRepository movieRepository() {
-        return new MovieRepositoryMongoDb();
-    }
 
     @Bean
     ReviewRepository reviewRepository() {

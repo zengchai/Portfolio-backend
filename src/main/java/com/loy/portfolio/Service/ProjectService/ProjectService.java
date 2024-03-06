@@ -9,11 +9,11 @@ import org.springframework.web.multipart.MultipartFile;
 import com.loy.portfolio.Models.Projects.Project;
 
 public interface ProjectService {
-    public String uploadProject(MultipartFile file, String title, String iconName, List<String> technology,
+    public String uploadProject(MultipartFile video, MultipartFile image, String title, String iconName, List<String> technology,
             List<String> description, String websiteURL, String githubURL) throws IOException;
 
     public List<Project> displayAllProject();
 
-    public Resource displayGif(String id);
+    public Resource findFileById(String id);
 
 }

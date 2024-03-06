@@ -12,13 +12,12 @@ import com.loy.portfolio.Models.Projects.ProjectDAO;
 
 public interface ProjectRepository {
 
-    public String uploadGif(MultipartFile file) throws IOException;
+    public String uploadFile(MultipartFile file) throws IOException;
 
     public String uploadProject(ProjectDAO project) throws IOException;
 
     public List<ProjectDAO> findAllProject();
 
-    public Resource findGifById(ObjectId id);
-
+    public Resource findFileById(ObjectId id);
 
 }

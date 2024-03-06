@@ -39,9 +39,10 @@ public class ProjectController implements ProjectApi {
             @RequestParam("githubURL") String githubURL,
             @RequestParam("technology") List<String> technology,
             @RequestParam("description") List<String> description,
-            @RequestPart("file") MultipartFile file) {
+            @RequestPart("video") MultipartFile video,
+            @RequestPart("image") MultipartFile image) {
         try {
-            String fileName = projectService.uploadProject(file, title, iconName,
+            String fileName = projectService.uploadProject(video, image, title, iconName,
                     technology, description, websiteURL,
                     githubURL);
             return ResponseEntity.ok("File uploaded successfully: " + fileName);
@@ -57,9 +58,9 @@ public class ProjectController implements ProjectApi {
     }
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Resource> viewGif(@PathVariable String id) {
+    public ResponseEntity<Resource> findFileById(@PathVariable String id) {
         return ResponseEntity.ok()
                 .contentType(MediaType.IMAGE_GIF)
-                .body(projectService.displayGif(id));
+                .body(projectService.findFileById(id));
     }
 }

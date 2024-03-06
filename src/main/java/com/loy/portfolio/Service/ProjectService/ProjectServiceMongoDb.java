@@ -26,10 +26,10 @@ public class ProjectServiceMongoDb implements ProjectService {
     @Autowired
     private final ObjectMapper objectMapper = new ObjectMapper();
 
-    public String uploadProject(MultipartFile file, String title, String iconName, List<String> technology,
+    public String uploadProject(MultipartFile video, MultipartFile image, String title, String iconName, List<String> technology,
             List<String> description, String websiteURL, String githubURL) throws IOException {
         ProjectDAO projectDAO = new ProjectDAO(title, iconName, technology, description,
-                projectRepository.uploadGif(file), websiteURL, githubURL);
+                projectRepository.uploadFile(video),projectRepository.uploadFile(image), websiteURL, githubURL);
         return projectRepository.uploadProject(projectDAO);
     }
 
@@ -43,8 +43,8 @@ public class ProjectServiceMongoDb implements ProjectService {
         return projects;
     }
 
-    public Resource displayGif(String id) {
+    public Resource findFileById(String id) {
         ObjectId objectId = new ObjectId(id);
-        return projectRepository.findGifById(objectId);
+        return projectRepository.findFileById(objectId);
     }
 }

@@ -26,16 +26,18 @@ public class ProjectDAO {
     private List<String> technology;
     private List<String> description;
     private String video;
+    private String image;
     private String websiteURL;
     private String githubURL;
 
     public ProjectDAO(String title, String iconName, List<String> technology, List<String> description, String video,
-            String websiteURL, String githubURL) {
+            String image, String websiteURL, String githubURL) {
         this.title = title;
         this.iconName = iconName;
         this.technology = technology;
         this.description = description;
         this.video = video;
+        this.image = image;
         this.websiteURL = websiteURL;
         this.githubURL = githubURL;
     }

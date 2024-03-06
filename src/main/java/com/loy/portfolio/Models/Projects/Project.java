@@ -13,23 +13,25 @@ public class Project {
     private List<String> technology;
     private List<String> description;
     private String video;
+    private String image;
     private String websiteURL;
     private String githubURL;
 
-    public String getId() {
-        return id;
-    }
-
     public Project(String id, String title, String iconName, List<String> technology, List<String> description,
-            String video, String websiteURL, String githubURL) {
+            String video, String image, String websiteURL, String githubURL) {
         this.id = id;
         this.title = title;
         this.iconName = iconName;
         this.technology = technology;
         this.description = description;
         this.video = video;
+        this.image = image;
         this.websiteURL = websiteURL;
         this.githubURL = githubURL;
+    }
+
+    public String getId() {
+        return id;
     }
 
     public void setId(String id) {
@@ -92,11 +94,20 @@ public class Project {
         this.githubURL = githubURL;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     public void fromDAO(final ProjectDAO dao) {
         this.id = dao.getId().toString();
         this.title = dao.getTitle();
         this.iconName = dao.getIconName();
         this.video = dao.getVideo();
+        this.image = dao.getImage();
         this.technology = dao.getTechnology();
         this.description = dao.getDescription();
         this.websiteURL = dao.getWebsiteURL();
