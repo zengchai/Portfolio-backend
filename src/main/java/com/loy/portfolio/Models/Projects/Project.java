@@ -14,11 +14,12 @@ public class Project {
     private List<String> description;
     private String video;
     private String image;
+    private int index;
     private String websiteURL;
     private String githubURL;
 
     public Project(String id, String title, String iconName, List<String> technology, List<String> description,
-            String video, String image, String websiteURL, String githubURL) {
+            String video, String image, int index, String websiteURL, String githubURL) {
         this.id = id;
         this.title = title;
         this.iconName = iconName;
@@ -26,6 +27,7 @@ public class Project {
         this.description = description;
         this.video = video;
         this.image = image;
+        this.index = index;
         this.websiteURL = websiteURL;
         this.githubURL = githubURL;
     }
@@ -108,6 +110,7 @@ public class Project {
         this.iconName = dao.getIconName();
         this.video = dao.getVideo();
         this.image = dao.getImage();
+        this.index = dao.getIndex();
         this.technology = dao.getTechnology();
         this.description = dao.getDescription();
         this.websiteURL = dao.getWebsiteURL();
@@ -123,6 +126,7 @@ public class Project {
         dao.setIconName(this.iconName);
         dao.setTechnology(this.technology);
         dao.setDescription(this.description);
+        dao.setIndex(this.index);
         dao.setWebsiteURL(this.websiteURL);
         dao.setGithubURL(this.githubURL);
         return dao;
@@ -130,5 +134,13 @@ public class Project {
 
     public Project(final ProjectDAO dao) {
         this.fromDAO(dao);
+    }
+
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
     }
 }

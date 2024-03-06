@@ -38,24 +38,31 @@ public interface ProjectApi {
                         @RequestParam("githubURL") String githubURL,
                         @RequestParam("technology") List<String> technology,
                         @RequestParam("description") List<String> description,
+                        @RequestParam("index") int index,
                         @RequestPart("video") MultipartFile file,
                         @RequestPart("image") MultipartFile image);
 
-        @Operation(summary = "Upload a project")
+        @Operation(summary = "View all projects")
         @ApiResponses(value = {
-                        @ApiResponse(responseCode = "200", description = "Successfully uploaded project"),
-                        @ApiResponse(responseCode = "400", description = "Invalid project provided")
+                        @ApiResponse(responseCode = "200", description = "Successfully viewed all projects"),
+                        @ApiResponse(responseCode = "400", description = "Coudn't fetch the projects")
         })
-
         @PostMapping(value = "/list")
         public ResponseEntity<List<Project>> viewAllProject();
 
-        @Operation(summary = "Upload a project")
+        @Operation(summary = "Find a file")
         @ApiResponses(value = {
-                        @ApiResponse(responseCode = "200", description = "Successfully uploaded project"),
-                        @ApiResponse(responseCode = "400", description = "Invalid project provided")
+                        @ApiResponse(responseCode = "200", description = "Successfully found the file"),
+                        @ApiResponse(responseCode = "400", description = "Invalid file provided")
         })
-
         @PostMapping(value = "/{id}")
         public ResponseEntity<Resource> findFileById(@PathVariable String id);
+
+        @Operation(summary = "Delete a project")
+        @ApiResponses(value = {
+                        @ApiResponse(responseCode = "200", description = "Successfully delete project"),
+                        @ApiResponse(responseCode = "400", description = "Invalid project provided")
+        })
+        @PostMapping(value = "/delete/{id}")
+        public ResponseEntity<String> deleteProjectById(@PathVariable String id);
 }

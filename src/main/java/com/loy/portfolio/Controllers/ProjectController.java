@@ -39,11 +39,12 @@ public class ProjectController implements ProjectApi {
             @RequestParam("githubURL") String githubURL,
             @RequestParam("technology") List<String> technology,
             @RequestParam("description") List<String> description,
+            @RequestParam("index") int index,
             @RequestPart("video") MultipartFile video,
             @RequestPart("image") MultipartFile image) {
         try {
             String fileName = projectService.uploadProject(video, image, title, iconName,
-                    technology, description, websiteURL,
+                    technology, description, index, websiteURL,
                     githubURL);
             return ResponseEntity.ok("File uploaded successfully: " + fileName);
         } catch (IOException e) {
@@ -62,5 +63,10 @@ public class ProjectController implements ProjectApi {
         return ResponseEntity.ok()
                 .contentType(MediaType.IMAGE_GIF)
                 .body(projectService.findFileById(id));
+    }
+
+    @GetMapping(value = "/delete/{id}")
+    public ResponseEntity<String> deleteProjectById(@PathVariable String id) {
+        return ResponseEntity.ok("Project deleted successfully: " + projectService.deleteProjectById(id));
     }
 }
