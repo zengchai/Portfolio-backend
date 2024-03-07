@@ -1,12 +1,9 @@
 package com.loy.portfolio.Models.Projects;
 
-import java.lang.reflect.Array;
 import java.util.List;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import com.mongodb.client.gridfs.GridFSBucket;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

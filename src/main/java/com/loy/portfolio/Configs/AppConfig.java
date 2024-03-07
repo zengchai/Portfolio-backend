@@ -7,10 +7,14 @@ import com.loy.portfolio.Models.Projects.ProjectRepository.ProjectRepository;
 import com.loy.portfolio.Models.Projects.ProjectRepository.MongoDb.ProjectRepositoryMongoDb;
 import com.loy.portfolio.Models.Reviews.ReviewRepository.ReviewRepository;
 import com.loy.portfolio.Models.Reviews.ReviewRepository.MongoDb.ReviewRepositoryMongoDb;
+import com.loy.portfolio.Models.Skills.SkillRepository.SkillRepository;
+import com.loy.portfolio.Models.Skills.SkillRepository.MongoDb.SkillRepositoryMongoDb;
 import com.loy.portfolio.Service.ProjectService.ProjectService;
 import com.loy.portfolio.Service.ProjectService.ProjectServiceMongoDb;
 import com.loy.portfolio.Service.ReviewService.ReviewService;
 import com.loy.portfolio.Service.ReviewService.ReviewServiceMongoDb;
+import com.loy.portfolio.Service.SkillService.SkillService;
+import com.loy.portfolio.Service.SkillService.SkillServiceMongoDb;
 
 @Configuration
 public class AppConfig {
@@ -34,5 +38,17 @@ public class AppConfig {
     ProjectService projectService() {
         return new ProjectServiceMongoDb();
     }
+
+    
+    @Bean
+    SkillRepository skillRepository() {
+        return new SkillRepositoryMongoDb();
+    }
+
+    @Bean
+    SkillService skillService() {
+        return new SkillServiceMongoDb();
+    }
+
 
 }

@@ -45,8 +45,8 @@ public class ProjectRepositoryMongoDb implements ProjectRepository {
     }
 
     public List<ProjectDAO> findAllProject() {
-        Sort sortByObjectIdAsc = Sort.by(Sort.Direction.DESC, "index"); // Sorting by _id in ascending order
-        return projectMongoDb.findAll(sortByObjectIdAsc);
+        Sort sortByObjectIdDesc = Sort.by(Sort.Direction.DESC, "index"); // Sorting by _id in ascending order
+        return projectMongoDb.findAll(sortByObjectIdDesc);
     }
 
     public Optional<ProjectDAO> findProjectById(String id) {
