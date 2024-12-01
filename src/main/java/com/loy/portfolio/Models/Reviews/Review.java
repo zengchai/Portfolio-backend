@@ -56,7 +56,7 @@ public class Review {
         this.review = review;
     }
 
-    public void fromDAO(final ReviewDAO dao) {
+    public void fromDAO(final ReviewDO dao) {
         this.id = dao.getId().toString();
         this.name = dao.getName();
         this.position = dao.getPosition();
@@ -65,8 +65,8 @@ public class Review {
 
     }
 
-    public ReviewDAO toDAO() {
-        ReviewDAO dao = new ReviewDAO();
+    public ReviewDO toDAO() {
+        ReviewDO dao = new ReviewDO();
         if (this.id != null)
             dao.setId(new ObjectId(this.id));
             dao.setName(this.name);
@@ -75,7 +75,7 @@ public class Review {
         return dao;
     }
 
-    public Review(final ReviewDAO dao){
+    public Review(final ReviewDO dao){
             this.fromDAO(dao);
         }
 }

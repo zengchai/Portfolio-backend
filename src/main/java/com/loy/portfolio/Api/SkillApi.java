@@ -5,10 +5,7 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RequestPart;
-import org.springframework.web.multipart.MultipartFile;
 
-import com.loy.portfolio.Models.Projects.Project;
 import com.loy.portfolio.Models.Skills.Skills;
 
 import io.swagger.v3.oas.annotations.Operation;
@@ -18,6 +15,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 @Tag(name = "Skill", description = "Skill API")
 public interface SkillApi {
+        
     @Operation(summary = "Upload a skill")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successfully uploaded skill"),

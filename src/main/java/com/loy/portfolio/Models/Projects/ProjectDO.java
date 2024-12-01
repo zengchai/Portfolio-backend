@@ -14,7 +14,7 @@ import nonapi.io.github.classgraph.json.Id;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProjectDAO {
+public class ProjectDO {
 
     @Id
     private ObjectId id;
@@ -28,7 +28,7 @@ public class ProjectDAO {
     private String websiteURL;
     private String githubURL;
 
-    public ProjectDAO(String title, String iconName, List<String> technology, List<String> description, String video,
+    public ProjectDO(String title, String iconName, List<String> technology, List<String> description, String video,
             String image, int index, String websiteURL, String githubURL) {
         this.title = title;
         this.iconName = iconName;

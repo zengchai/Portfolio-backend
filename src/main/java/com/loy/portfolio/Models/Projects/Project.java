@@ -3,7 +3,6 @@ package com.loy.portfolio.Models.Projects;
 import java.util.List;
 
 import org.bson.types.ObjectId;
-import org.springframework.core.io.Resource;
 
 public class Project {
 
@@ -104,7 +103,7 @@ public class Project {
         this.image = image;
     }
 
-    public void fromDAO(final ProjectDAO dao) {
+    public void fromDAO(final ProjectDO dao) {
         this.id = dao.getId().toString();
         this.title = dao.getTitle();
         this.iconName = dao.getIconName();
@@ -118,8 +117,8 @@ public class Project {
 
     }
 
-    public ProjectDAO toDAO() {
-        ProjectDAO dao = new ProjectDAO();
+    public ProjectDO toDAO() {
+        ProjectDO dao = new ProjectDO();
         if (this.id != null)
             dao.setId(new ObjectId(this.id));
         dao.setTitle(this.title);
@@ -132,7 +131,7 @@ public class Project {
         return dao;
     }
 
-    public Project(final ProjectDAO dao) {
+    public Project(final ProjectDO dao) {
         this.fromDAO(dao);
     }
 

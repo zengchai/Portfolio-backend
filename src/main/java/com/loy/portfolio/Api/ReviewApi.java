@@ -1,7 +1,6 @@
 package com.loy.portfolio.Api;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.loy.portfolio.Models.Reviews.Review;
@@ -25,6 +24,7 @@ public interface ReviewApi {
             @ApiResponse(responseCode = "400", description = "Invalid payload provided")
     })
     ResponseEntity<Review> createReview(
-            @io.swagger.v3.oas.annotations.parameters.RequestBody(description = "The payload for creating a new review", required = true, content = @Content(mediaType = "application/json", examples = {
-                    @ExampleObject(value = "{\"imdbId\": \"String\", \"position\": \"String\", \"company\": \"String\", \"review\": \"String\"}") })) @RequestBody Map<String, String> payload);
+            @io.swagger.v3.oas.annotations.parameters.RequestBody(description = "The payload for creating a new review", required = true, content = @Content(mediaType = "application/json", 
+                        examples = {@ExampleObject(value = "{\"imdbId\": \"String\", \"position\": \"String\", \"company\": \"String\", \"review\": \"String\"}")}))
+            @RequestBody Map<String, String> payload);
 }

@@ -2,8 +2,6 @@ package com.loy.portfolio.Models.Skills;
 
 import org.bson.types.ObjectId;
 
-import com.loy.portfolio.Models.Projects.ProjectDAO;
-
 public class Skills {
     private String id;
     private String name;
@@ -58,7 +56,7 @@ public class Skills {
         this.index = index;
     }
 
-    public void fromDAO(final SkillsDAO dao) {
+    public void fromDAO(final SkillsDO dao) {
         this.id = dao.getId().toString();
         this.name = dao.getName();
         this.category = dao.getCategory();
@@ -67,8 +65,8 @@ public class Skills {
 
     }
 
-    public SkillsDAO toDAO() {
-        SkillsDAO dao = new SkillsDAO();
+    public SkillsDO toDAO() {
+        SkillsDO dao = new SkillsDO();
         if (this.id != null)
             dao.setId(new ObjectId(this.id));
         dao.setName(this.name);
@@ -78,7 +76,7 @@ public class Skills {
         return dao;
     }
 
-    public Skills(final SkillsDAO dao) {
+    public Skills(final SkillsDO dao) {
         this.fromDAO(dao);
     }
 

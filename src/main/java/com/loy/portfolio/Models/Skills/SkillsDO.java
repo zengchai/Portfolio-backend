@@ -12,7 +12,7 @@ import nonapi.io.github.classgraph.json.Id;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SkillsDAO {
+public class SkillsDO {
     @Id
     private ObjectId id;
     private String name;
@@ -20,7 +20,7 @@ public class SkillsDAO {
     private String subcategory;
     private String index;
 
-    public SkillsDAO(String name, String category, String subcategory, String index) {
+    public SkillsDO(String name, String category, String subcategory, String index) {
         this.name = name;
         this.category = category;
         this.subcategory = subcategory;

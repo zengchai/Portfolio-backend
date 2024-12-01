@@ -1,6 +1,6 @@
 package com.loy.portfolio.Models.User;
 
-public class UserDAO {
+public class UserDO {
     
     private byte[] image; // Field to store image data
 

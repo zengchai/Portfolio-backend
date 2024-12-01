@@ -3,12 +3,12 @@ package com.loy.portfolio.Models.Skills.SkillRepository;
 import java.io.IOException;
 import java.util.List;
 
-import com.loy.portfolio.Models.Skills.SkillsDAO;
+import com.loy.portfolio.Models.Skills.SkillsDO;
 
 public interface SkillRepository {
 
-    public List<SkillsDAO> findAllSkill();
+    public List<SkillsDO> findAllSkill();
 
-    public String uploadSkill(SkillsDAO skill) throws IOException;
+    public String uploadSkill(SkillsDO skill) throws IOException;
 
 }

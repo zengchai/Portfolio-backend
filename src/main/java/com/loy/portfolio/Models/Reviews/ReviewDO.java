@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ReviewDAO {
+public class ReviewDO {
 
     @Id
     private ObjectId id;
@@ -21,7 +21,7 @@ public class ReviewDAO {
     private String company;
     private String review;
     
-    public ReviewDAO(String name, String position, String company, String review) {
+    public ReviewDO(String name, String position, String company, String review) {
         this.name = name;
         this.position = position;
         this.company = company;

@@ -2,10 +2,8 @@ package com.loy.portfolio.Models.Projects.ProjectRepository.MongoDb;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 import org.springframework.core.io.Resource;
 import org.bson.types.ObjectId;
@@ -17,9 +15,8 @@ import org.springframework.data.mongodb.gridfs.GridFsOperations;
 import org.springframework.data.mongodb.gridfs.GridFsResource;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.loy.portfolio.Models.Projects.ProjectDAO;
+import com.loy.portfolio.Models.Projects.ProjectDO;
 import com.loy.portfolio.Models.Projects.ProjectRepository.ProjectRepository;
-import com.mongodb.client.gridfs.GridFSFindIterable;
 import com.mongodb.client.gridfs.model.GridFSFile;
 
 public class ProjectRepositoryMongoDb implements ProjectRepository {
@@ -39,17 +36,17 @@ public class ProjectRepositoryMongoDb implements ProjectRepository {
         return gridFsOperations.store(inputStream, fileName, contentType).toString();
     }
 
-    public String uploadProject(ProjectDAO project) throws IOException {
+    public String uploadProject(ProjectDO project) throws IOException {
         projectMongoDb.insert(project);
         return project.getTitle();
     }
 
-    public List<ProjectDAO> findAllProject() {
+    public List<ProjectDO> findAllProject() {
         Sort sortByObjectIdDesc = Sort.by(Sort.Direction.DESC, "index"); // Sorting by _id in ascending order
         return projectMongoDb.findAll(sortByObjectIdDesc);
     }
 
-    public Optional<ProjectDAO> findProjectById(String id) {
+    public Optional<ProjectDO> findProjectById(String id) {
         ObjectId objectId = new ObjectId(id);
         return projectMongoDb.findById(objectId);
     }
